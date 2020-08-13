@@ -25,7 +25,7 @@ pipeline = load_pipeline(file_name=pipeline_file_name)
 def make_prediction(*, input_data) -> dict:
     """Make a prediction using the saved model pipeline."""
     
-    data = pd.read_json(input_data)
+    data = pd.DataFrame(input_data)
     prediction = pipeline.predict(data[config.FEATURES])
     
     results = {"predictions": prediction, "version": _version}
