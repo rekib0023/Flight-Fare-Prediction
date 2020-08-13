@@ -20,8 +20,8 @@ PIPELINE_SAVE_FILE = f"{PIPELINE_NAME}_output_v"
 
 
 # data
-TESTING_DATA_FILE = "test.xlsx"
-TRAINING_DATA_FILE = "train.xlsx"
+TESTING_DATA_FILE = "Test_set.xlsx"
+TRAINING_DATA_FILE = "Data_Train.xlsx"
 TARGET = "Price"
 
 
