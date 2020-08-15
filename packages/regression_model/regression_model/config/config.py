@@ -46,4 +46,4 @@ CATEGORICAL_FEATURES = ['Airline',
 FEATURE_WITH_RARE_LABELS = ['Airline', 'Additional_Info']
 
 # used for differential testing
-ACCEPTABLE_MODEL_DIFFERENCE = 0.05
+ACCEPTABLE_MODEL_DIFFERENCE = 0.5
