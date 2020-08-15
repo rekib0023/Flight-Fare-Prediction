@@ -43,11 +43,5 @@ def test_model_prediction_differential(
         # convert numpy float64 to Python float.
         previous_value = previous_value.item()
         current_value = current_value.item()
-
-        # rel_tol is the relative tolerance – it is the maximum allowed
-        # difference between a and b, relative to the larger absolute
-        # value of a or b. For example, to set a tolerance of 5%, pass
-        # rel_tol=0.05.
-        # assert math.isclose(previous_value,
-        #                     current_value,
-        #                     rel_tol=model_config.ACCEPTABLE_MODEL_DIFFERENCE)
+        
+        assert current_value >= previous_value
