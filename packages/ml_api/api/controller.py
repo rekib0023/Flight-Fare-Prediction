@@ -5,7 +5,7 @@ Created on Wed Aug 12 22:15:23 2020
 @author: rkbra
 """
 
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, render_template
 from regression_model.predict import make_prediction
 from regression_model import __version__ as _version
 
@@ -31,6 +31,11 @@ def version():
     if request.method == 'GET':
         return jsonify({'model_version': _version,
                         'api_version': api_version})
+
+
+@prediction_app.route('/', methods=['GET', 'POST'])
+def home():
+    return render_template('index.html')
     
 
 @prediction_app.route('/v1/predict/regression', methods=['POST', 'GET'])
