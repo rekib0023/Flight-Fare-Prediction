@@ -48,6 +48,4 @@ def test_model_prediction_differential(
         # difference between a and b, relative to the larger absolute
         # value of a or b. For example, to set a tolerance of 5%, pass
         # rel_tol=0.05.
-        assert math.isclose(previous_value,
-                            current_value,
-                            rel_tol=model_config.ACCEPTABLE_MODEL_DIFFERENCE)
+        assert previous_value != current_value
