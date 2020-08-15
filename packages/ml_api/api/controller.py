@@ -33,7 +33,7 @@ def version():
                         'api_version': api_version})
     
 
-@prediction_app.route('/v1/predict/regression', methods=['POST'])
+@prediction_app.route('/v1/predict/regression', methods=['POST', 'GET'])
 def predict():
     if request.method == 'POST':
         # Step 1: Extract POST data from request body as JSON
@@ -55,3 +55,5 @@ def predict():
         return jsonify({'predictions': predictions,
                         'version': version,
                         'errors': errors})
+    else:
+        return 'ki bal'
