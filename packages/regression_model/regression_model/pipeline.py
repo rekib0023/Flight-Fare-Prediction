@@ -26,6 +26,6 @@ pipeline = Pipeline(
      ('rare_label_encoder', pp.RareLabelCategoricalEncoder(tol=0.0015, variables=config.FEATURE_WITH_RARE_LABELS)),
      ('encoder', pp.Encoder(variables=config.CATEGORICAL_FEATURES)),
      ('scaler', MinMaxScaler()),
-     ('model', RandomForestRegressor(n_estimators=500))
+     ('model', RandomForestRegressor(n_estimators=100))
    ]
 )
