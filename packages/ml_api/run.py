@@ -6,11 +6,11 @@ Created on Wed Aug 12 22:22:22 2020
 """
 
 from api.app import create_app
-from api.config import DevelopmentConfig
+from api.config import DevelopmentConfig, ProductionConfig
 
 
 application = create_app(
-    config_object=DevelopmentConfig)
+    config_object=ProductionConfig)
 
 
 if __name__ == '__main__':
