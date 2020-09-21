@@ -28,7 +28,8 @@ TARGET = "Price"
 FEATURES = ['Airline', 
             'Date_of_Journey', 
             'Source', 
-            'Destination',
+            'Destination', 
+            'Route',
             'Dep_Time', 
             'Arrival_Time', 
             'Duration', 
@@ -37,7 +38,8 @@ FEATURES = ['Airline',
 
 CATEGORICAL_FEATURES = ['Airline', 
                         'Source', 
-                        'Destination',
+                        'Destination', 
+                        'Route', 
                         'Additional_Info']
 
 

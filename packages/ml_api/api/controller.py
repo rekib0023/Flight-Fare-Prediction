@@ -60,3 +60,5 @@ def predict():
         return jsonify({'predictions': predictions,
                         'version': version,
                         'errors': errors})
+    else:
+        return 'ki bal'
