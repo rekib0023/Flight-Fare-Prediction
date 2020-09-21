@@ -69,18 +69,18 @@ jobs:
     steps:
       - checkout
       - *prepare_venv
-      - run: 
+      - run:
           name: Install requirements
           command: |
             . venv/bin/activate
             pip install -r packages/regression_model/requirements.txt
       - *fetch_data
-      - run: 
+      - run:
           name: Train model
           command: |
             . venv/bin/activate
             PYTHONPATH=./packages/regression_model python3 packages/regression_model/regression_model/train_pipeline.py
-      - run: 
+      - run:
           name: Publish model to Gemfury
           command: |
             . venv/bin/activate
@@ -120,7 +120,20 @@ workflows:
     jobs:
       - test_regression_model
       - test_ml_api
-      - train_and_upload_regression_model
-      - test_ml_api:
+      - differential_tests
+      - train_and_upload_regression_model:
+          requires:
+            - test_regression_model
+            - test_ml_api
+            - differential_tests
+          filters:
+            branches:
+              only:
+                - master
+      - deploy_to_heroku:
           requires:
             - train_and_upload_regression_model
+          filters:
+            branches:
+              only:
+                - master
