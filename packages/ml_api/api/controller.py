@@ -42,7 +42,7 @@ def home():
 def predict():
     if request.method == 'POST':
         # Step 1: Extract POST data from request body as JSON
-        json_data = request.get_json()
+        json_data = request.form()
         _logger.debug(f'Inputs: {json_data}')
 
         # Step 2: Validate the input using marshmallow schema
