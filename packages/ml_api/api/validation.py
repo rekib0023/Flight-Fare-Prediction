@@ -21,7 +21,6 @@ class FlightDataRequestSchema(Schema):
     Date_of_Journey = fields.Str(allow_none=True)
     Source = fields.Str(allow_none=True)
     Destination = fields.Str(allow_none=True)
-    Route = fields.Str(allow_none=True)
     Dep_Time = fields.Str(allow_none=True)
     Arrival_Time = fields.Str(allow_none=True)
     Duration = fields.Str(allow_none=True)

@@ -125,3 +125,4 @@ packages/regression_model/regression_model/datasets/*.csv
 packages/regression_model/regression_model/datasets/*.zip
 packages/regression_model/regression_model/datasets/*.txt
 packages/regression_model/regression_model/datasets/*.xlsx
+.vscode/settings.json
