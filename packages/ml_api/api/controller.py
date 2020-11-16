@@ -60,7 +60,7 @@ def predictForUser():
         
 
         # Step 3: Model prediction
-        result = make_prediction(input_data=input_data)
+        result = make_prediction(input_data=input_data, form_input=True)
         _logger.debug(f'Outputs: {result}')
 
         # Step 4: Convert numpy ndarray to list
