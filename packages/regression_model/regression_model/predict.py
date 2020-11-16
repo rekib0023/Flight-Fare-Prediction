@@ -22,7 +22,7 @@ pipeline_file_name = f"{config.PIPELINE_SAVE_FILE}{_version}.pkl"
 pipeline = load_pipeline(file_name=pipeline_file_name)
 
 
-def make_prediction(*, input_data: t.Union[pd.DataFrame, dict],
+def make_prediction(*, input_data: t.Union[pd.DataFrame, dict], form_input=False,
                     ) -> dict:
     """Make a prediction using a saved model pipeline.
 
@@ -32,8 +32,10 @@ def make_prediction(*, input_data: t.Union[pd.DataFrame, dict],
     Returns:
         Predictions for each input row, as well as the model version.
     """
-    
-    data = pd.DataFrame(input_data)
+    if form_input==True:
+        data = pd.DataFrame(input_data, index=[0])
+    else:
+        data = pd.DataFrame(input_data)
     prediction = pipeline.predict(data[config.FEATURES])
     
     results = {"predictions": prediction, "version": _version}

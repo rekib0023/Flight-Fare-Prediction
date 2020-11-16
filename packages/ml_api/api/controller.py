@@ -41,14 +41,26 @@ def home():
 def predictForUser():
     if request.method == 'POST':
         # Step 1: Extract POST data from request body as JSON
-        json_data = request.form()
+        json_data = {
+            'Airline': str(request.form['Airline']),
+            'Date_of_Journey': str(request.form['Date_of_Journey']),
+            'Source': str(request.form['Source']),
+            'Destination': str(request.form['Destination']),
+            'Dep_Time': str(request.form['Dep_Time']),
+            'Arrival_Time': str(request.form['Arrival_Time']),
+            'Duration': str(request.form['Duration']),
+            'Total_Stops': str(request.form['Total_Stops']),
+            'Additional_Info': str(request.form['Additional_Info']),
+        }
+        
         _logger.debug(f'Inputs: {json_data}')
-
+        
         # Step 2: Validate the input using marshmallow schema
-        input_data, errors = validate_inputs(input_data=json_data)
+        input_data, errors = validate_inputs(input_data=json_data, many=False)
+        
 
         # Step 3: Model prediction
-        result = make_prediction(input_data=input_data)
+        result = make_prediction(input_data=input_data, form_input=True)
         _logger.debug(f'Outputs: {result}')
 
         # Step 4: Convert numpy ndarray to list

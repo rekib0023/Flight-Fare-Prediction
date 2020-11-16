@@ -42,11 +42,11 @@ def _filter_error_rows(errors: dict,
     return validated_input
 
 
-def validate_inputs(input_data):
+def validate_inputs(input_data, many=True):
     """Check prediction inputs against schema."""
 
     # set many=True to allow passing in a list
-    schema = FlightDataRequestSchema(strict=True, many=True)
+    schema = FlightDataRequestSchema(strict=True, many=many)
 
     errors = None
     try:
