@@ -33,7 +33,7 @@ def make_prediction(*, input_data: t.Union[pd.DataFrame, dict],
         Predictions for each input row, as well as the model version.
     """
     
-    data = pd.DataFrame(input_data)
+    data = pd.DataFrame(input_data, index=[0])
     prediction = pipeline.predict(data[config.FEATURES])
     
     results = {"predictions": prediction, "version": _version}
